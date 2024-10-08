@@ -1,38 +1,398 @@
+/* App.css */
+
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.white-background {
+  background-color: white;
 }
 
 .App-link {
-  color: #61dafb;
+  color: #0353A4;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.subheading {
+  font-size: 1.2em;
+  color: #333;
+  margin-top: 10px;
+  font-weight: normal;
+}
+
+.button {
+  background-color: #0353A4;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #023e7d;
+}
+
+.input {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form label {
+  width: 100%;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+form input {
+  width: 100%;
+}
+
+/* Navigation Styles */
+.App-nav {
+  background-color: #003559;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.App-nav .nav-logo {
+  height: 30px;
+  margin-left: 20px;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+
+.App-title {
+  position: absolute;
+  left: 10px;
+  font-size: 1.5em;
+  color: white;
+}
+
+.App-nav-item {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+
+.App-nav-item:hover {
+  transform: scale(1.1);
+  background-color: #B9D6F2;
+  color: #061A40;
+}
+
+.nav-toggle {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  background-color: #003559;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+}
+
+/* Media Queries */
+@media (max-width: 600px) {
+  .nav-toggle {
+    display: block;
   }
-  to {
-    transform: rotate(360deg);
+
+  .App-nav {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 50px 2px 2px 2px;
   }
+
+  .App-nav.open {
+    display: flex;
+  }
+
+  .App-nav-item {
+    padding: 10px 0;
+    width: 100%;
+    text-align: left;
+    transition: none;
+    /* Disable transition on mobile */
+  }
+
+  .App-nav-item:hover {
+    transform: none;
+    /* Disable zoom on hover for mobile */
+    background-color: #B9D6F2;
+    color: #061A40;
+  }
+
+  .App-title {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+
+  .App-logo {
+    position: static;
+    margin: 0 auto 10px;
+  }
+
+  .App-header {
+    padding: 20px;
+  }
+}
+
+@media (min-width: 601px) {
+  .nav-toggle {
+    display: none;
+  }
+
+  .App-nav {
+    display: flex !important;
+  }
+}
+
+.home-logo {
+  width: 100px;
+  height: auto;
+  margin-top: 20px;
+}
+
+.email-form {
+  background-color: #f9f9f9;
+  padding: 30px;
+  border-radius: 10px;
+  margin: 20px auto;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.email-form label {
+  width: 100%;
+  margin-bottom: 15px;
+  color: #333;
+  font-weight: bold;
+}
+
+.email-form input,
+.email-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+.email-form input:focus,
+.email-form textarea:focus {
+  border-color: #0353A4;
+  outline: none;
+}
+
+.email-form button {
+  background-color: #0353A4;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.email-form button:hover {
+  background-color: #023e7d;
+}
+
+.email-form p {
+  margin-bottom: 10px;
+}
+
+/* Car Selector Styles */
+.car-selector {
+  text-align: center;
+  background: transparent;
+  color: #061A40;
+  padding: 10px;
+  font-size: 1em;
+  width: 50%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+@media (min-width: 601px) {
+  .car-selector {
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+/* Carousel Styles */
+.carousel .slide {
+  background: transparent;
+}
+
+.carousel .control-arrow {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.carousel .control-arrow:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.carousel .thumb {
+  border: 2px solid #003559;
+}
+
+.carousel .thumb.selected,
+.carousel .thumb:hover {
+  border-color: #0353A4;
+}
+
+/* Close Button */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #ff0000;
+  color: white;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 5px;
+  z-index: 1000;
+}
+
+.back-button {
+  align-self: flex-end;
+  background-color: #0353A4;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.back-button:hover {
+  background-color: #023e7d;
+}
+
+.application-form-box {
+  border: 2px solid black;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px auto;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.car-details {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+}
+
+.car-name {
+  font-size: 1.5em;
+  color: #003559;
+  margin-bottom: 10px;
+}
+
+.car-image {
+  width: 50%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.car-details-text {
+  font-size: 1em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.car-details-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.car-details-label {
+  margin-bottom: 10px;
+  font-size: 1em;
+  color: #333;
+}
+
+.car-details-save-button,
+.book-service-button {
+  width: 100%;
+  padding: 10px;
+}
+
+.book-service-button {
+  margin-top: 20px;
+}
+
+.login-form {
+  background-color: #B9D6F2;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px auto;
+  width: 80%;
+  max-width: 500px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-form h2 {
+  margin-bottom: 20px;
+}
+
+.Home {
+  overflow-y: auto;
+  max-height: 80vh;
+  padding: 10px 40px;
+  background-color: #B9D6F2;
+  color: #003559;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 40px;
 }
