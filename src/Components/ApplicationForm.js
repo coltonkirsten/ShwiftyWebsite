@@ -16,14 +16,13 @@ function ApplicationForm({ onBack }) {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="job-application-form application-form-box">
-            <button type="button" className="button back-button" onClick={onBack}>Back</button>
-            <label>
-                Job Title: Mobile Technician
-            </label>
-            <label>
-                Job Description: Describe
-            </label>
+        <form onSubmit={handleSubmit} className="job-application-form application-form-box" style={{ textAlign: 'left' }}>
+            <button type="button" className="button back-button" onClick={onBack} style={{ marginBottom: '20px' }}>Back</button>
+            <h2 style={{ fontSize: '2rem', fontWeight: 'bold', textAlign: 'left' }}>Mobile Technician</h2>
+            <p style={{ fontSize: '0.8rem', textAlign: 'left' }}>
+                Join our dynamic team as a Mobile Technician. We are looking for highly skilled and
+                motivated individuals to provide top-quality service to our customers in the field.
+            </p>
             <label>
                 Name:
                 <input

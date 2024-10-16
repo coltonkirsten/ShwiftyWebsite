@@ -12,11 +12,11 @@ function App() {
   const [visibleComponent, setVisibleComponent] = useState('home');
   const [isApplicationFormVisible, setIsApplicationFormVisible] = useState(false);
   const isDesktop = window.innerWidth >= 601;
+  const [isNavVisible, setIsNavVisible] = useState(false);
 
   useEffect(() => {
     setIsNavVisible(isDesktop);
   }, [isDesktop]);
-  const [isNavVisible, setIsNavVisible] = useState(false);
 
   const toggleNav = () => {
     setIsNavVisible(!isNavVisible);
@@ -27,18 +27,22 @@ function App() {
     setIsApplicationFormVisible(false);
     if (!isDesktop) toggleNav();
   };
+
   const showHome = () => {
     setVisibleComponent('home');
     if (!isDesktop) toggleNav();
   };
+
   const showGarage = () => {
     setVisibleComponent('garage');
     if (!isDesktop) toggleNav();
   };
+
   const showContact = () => {
     setVisibleComponent('contact');
     if (!isDesktop) toggleNav();
   };
+
   const showLogin = () => {
     setVisibleComponent('login');
     if (!isDesktop) toggleNav();
@@ -50,7 +54,7 @@ function App() {
         <button className="nav-toggle" onClick={toggleNav}>{isNavVisible ? 'Close' : 'Menu'}</button>
       )}
       <nav className={`App-nav ${isNavVisible ? 'open' : ''}`.trim()}>
-<img src={logo} alt="Logo" className="nav-logo" onClick={showHome} />
+        <img src={logo} alt="Logo" className="nav-logo" onClick={showHome} />
         <a className="App-nav-item" href="#home" onClick={showHome}>Home</a>
         {/* <a className="App-nav-item" href="#garage" onClick={showGarage}>Garage</a> */}
         <a className="App-nav-item" href="#careers" onClick={showCareers}>Careers</a>

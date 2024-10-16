@@ -316,15 +316,17 @@ form input {
 }
 
 .application-form-box {
-  border: 2px solid black;
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  margin: 20px auto;
-  width: 80%;
-  max-width: 600px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Updated styles for better appearance */
+  background-color: #f0f0f0;
+  padding: 30px;
+  border-radius: 15px;
+  margin: 30px auto;
+  width: 90%;
+  max-width: 700px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
+
+
 .car-details {
   background-color: #fff;
   padding: 20px;
